@@ -9,34 +9,30 @@ public class StudentDatabase {
     private static final String PASSWORD = "12345678";
 
     public static void main(String[] args) {
-        resetDatabase();  // Step 1: Reset to IDs 1, 2, 3
+        resetDatabase();
 
-        getAllStudents(); // Display after reset
+        getAllStudents();
         addStudent("Alice", "Cooper", "alice.cooper@example.com", LocalDate.now());
         getAllStudents();
         updateStudentEmail(1, "john.doe@updated.com");
         getAllStudents();
         deleteStudent(4);
-        getAllStudents(); // Display after operations
+        getAllStudents();
     }
 
-    // === RESET FUNCTION ===
     public static void resetDatabase() {
         String deleteSQL = "DELETE FROM students";
         String resetSequenceSQL = "ALTER SEQUENCE students_student_id_seq RESTART WITH 1";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              Statement stmt = conn.createStatement()) {
 
-            // Delete all existing rows
             stmt.executeUpdate(deleteSQL);
 
-            // Reset auto-increment sequence (important for ID = 1, 2, 3)
             stmt.executeUpdate(resetSequenceSQL);
 
-            // Insert three base students
-            addStudent("John", "Doe", "john.doe@example.com", LocalDate.of(2024, 9, 1));
-            addStudent("Jane", "Smith", "jane.smith@example.com", LocalDate.of(2024, 9, 1));
-            addStudent("Bob", "Johnson", "bob.johnson@example.com", LocalDate.of(2024, 9, 1));
+            addStudent("John", "Doe", "john.doe@example.com", LocalDate.of(2023, 9, 1));
+            addStudent("Jane", "Smith", "jane.smith@example.com", LocalDate.of(2023, 9, 1));
+            addStudent("Bob", "Johnson", "bob.johnson@example.com", LocalDate.of(2023, 9, 2));
 
             System.out.println("Database reset to default students (IDs 1–3).");
 
