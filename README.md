@@ -27,3 +27,7 @@ Download the PostgreSQL JDBC driver (postgresql-<version>.jar) and add it to you
 If all dependencies have been met, the code should run with no problem in IntelliJ using Maven.
 
 The code will reset the database, add a student, change the email of the first student, then remove the added student
+
+
+-- Demonstration on Youtube of the code--
+https://youtu.be/LS71j22Qc7o
