@@ -24,6 +24,6 @@ private static final String PASSWORD = "12345678";
 
 Download the PostgreSQL JDBC driver (postgresql-<version>.jar) and add it to your classpath.
 
-If all dependencies have been met, the code should run with no problem.
+If all dependencies have been met, the code should run with no problem in IntelliJ using Maven.
 
 The code will reset the database, add a student, change the email of the first student, then remove the added student
